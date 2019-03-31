@@ -1,0 +1,46 @@
+@import "reset";
+@import "typography";
+
+$primary-color:rgb(68, 161, 88);
+$body-font: "Jost";
+$body-size: 24px;
+$mqlarge: 800px;
+$mqmedium: 600px;
+
+@mixin drop-shadow($color) {
+    box-shadow: 0 0 40px $color;
+}
+
+@mixin mq($width){
+    @media (max-width: $width){ 
+        @content;}
+}
+
+@mixin vert-mid (){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+body {
+    background-color: $primary-color;
+    color:#ffffff;
+    font-family: $body-font;
+    line-height: 1.5;
+    height: 100vh;
+    @include vert-mid()
+}
+
+section {
+    width: 500px;
+    @include mq($mqmedium){
+        width: 350px;
+        font-size: 16px;
+    }
+    p {
+        margin: 24px 0 0 0;
+    }
+
+}
